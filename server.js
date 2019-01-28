@@ -7,14 +7,14 @@ const fetch = require('node-fetch');
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-function showObject(obj) {
-  var result = "";
-  for (var p in obj) {
-    if( obj.hasOwnProperty(p) ) {
-      result += p + " , " + obj[p] + "\n";
-    }
+// Parse JSON
+function showObject(json) {
+  var obj = JSON.parse(json);
+  var keys = Object.keys(obj);
+  for (var i = 0; i < keys.length; i++) {
+    console.log(obj[keys[i]]);
   }
-  return result;
+  return keys[0];
 }
 
 async function getSecrets() {
@@ -25,7 +25,7 @@ async function getSecrets() {
 
 (async () => {
   const TEST1 = await getSecrets();
-  //const TEST2 = process.env.TEST2
+
   // App
   const app = express();
   app.get('/', (req, res) => {
