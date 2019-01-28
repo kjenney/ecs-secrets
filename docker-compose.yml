@@ -1,0 +1,16 @@
+version: '2.1'
+
+services:
+  app:
+    build: .
+    links:
+      - fakeservice
+    ports:
+      - 8080:8080
+    depends_on:
+      - fakeservice
+
+  fakeservice:
+    build: fakeservice
+    ports:
+      - 8081:8081
