@@ -13,10 +13,6 @@ RUN npm install
 
 COPY . .
 
-COPY run.sh /
-RUN chmod +x /run.sh
-
 EXPOSE 8080
 
-ENTRYPOINT ["/run.sh"]
-CMD []
+CMD nmp start

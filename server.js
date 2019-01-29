@@ -10,7 +10,7 @@ const HOST = '0.0.0.0';
 process.env.NODE_ENV = 'prod';
 
 (async () => {
-  const TEST1 = await secretModule.getSecrets();
+  const TEST1 = await secretModule.loopSecrets();
 
   // App
   const app = express();
