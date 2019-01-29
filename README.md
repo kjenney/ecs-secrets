@@ -14,5 +14,6 @@ The Docker image is very basic. It's just a super-simple NodeJS application that
 
 ## Deploy
 
-1. CF public-vpc.yml
-2. CF public-service.yml (Reference stack name created by step 1)
+1. Create secrets
+2. CF public-vpc.yml
+3. CF public-service.yml (Reference stack name created by step 1)

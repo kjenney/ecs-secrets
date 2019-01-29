@@ -7,10 +7,10 @@ const secretModule = require('./secretm');
 // Constants
 const PORT = 8080;
 const HOST = '0.0.0.0';
-process.env.NODE_ENV = 'prod';
+//process.env.NODE_ENV = 'prod';
 
 (async () => {
-  const TEST1 = await secretModule.loopSecrets();
+  await secretModule.loopSecrets();
 
   // App
   const app = express();
