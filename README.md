@@ -4,13 +4,22 @@ An example Fargate service.
 
 Runs nodejs with Express.
 
-Passes Environment Variables to container
+Pulls secrets from SecretsManager into the Node process as environment variables.
 
 This example uses a public VPC and Load-Balancer
 
 ## Docker Image
 
-The Docker image is very basic. It's just a super-simple NodeJS application that is started by the run.sh script. The purpose of this script is to pass in environmental variables that are set in the CloudFormation stack.
+The Docker image is very basic. It's just a super-simple NodeJS application with an additional module that pulls in secrets by path.
+
+## Secret Paths
+
+Secrets need to be named to match the environment and service that they are being used by. For example:
+
+```
+prod/coolservice/neatapikey
+qa/anotherservice/coolcreds
+```
 
 ## Deploy
 
