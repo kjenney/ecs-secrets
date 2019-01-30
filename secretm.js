@@ -25,7 +25,6 @@ module.exports = {
      var AWS = require('aws-sdk'),
      endpoint = "https://secretsmanager.us-east-1.amazonaws.com",
      region = "us-east-1",
-     secretName = "prod/carrier/test",
      secret,
      binarySecretData;
 
@@ -41,7 +40,7 @@ module.exports = {
        } else {
          //console.log(data.SecretList);
          const match = data.SecretList.filter(item => {
-   	     return item.Name.includes('carrier') && item.Name.includes(process.env.NODE_ENV)
+   	     return item.Name.includes(process.env.SERVICE_NAME) && item.Name.includes(process.env.NODE_ENV)
          });
 
          match.forEach((config) => {

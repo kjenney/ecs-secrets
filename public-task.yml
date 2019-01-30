@@ -12,7 +12,7 @@ Parameters:
     Description: A name for the service
   ImageUrl:
     Type: String
-    Default: mastermindg/node-boot-env:v1.5
+    Default: mastermindg/node-boot-env:v1.6
     Description: The url of a docker image that contains the application process that
                  will handle the traffic for this service
   ContainerPort:
@@ -78,6 +78,8 @@ Resources:
           Environment:
             - Name:                  NODE_ENV
               Value:                 !Ref EnvironmentName
+            - Name:                  SERVICE_NAME
+              Value:                 !Ref ServiceName
           PortMappings:
             - ContainerPort: !Ref 'ContainerPort'
           LogConfiguration:
